@@ -1,6 +1,6 @@
 # wealth2track · properties and their money — intent
 
-> Read backwards with Palimpsest on 2026-11-08. Status: stage 2 of 4.
+> Read backwards with Palimpsest on 2026-11-08. Status: stage 3 of 4.
 
 **For agents:** before changing anything in this module, read `rules.md`. Keep every RESOLVED rule; anything not covered by a rule is free to change. If a change would break a rule, or a rule seems wrong, add an entry to `conflicts.md` instead of guessing.
 

@@ -188,7 +188,7 @@ All paths are relative to `wealth2track/lib/`. The only sources are the code, th
 
 - **Workflow:** W-05
 - **Evidence:** intent comment `data_delete_service.dart:16-19` ("delete properties / delete additionalExpense / delte borrowins"); `:21-25`. But expenses are deleted from subcollection `additionalProperties` (`:28`), while they are stored in `additionalExpenses` (`property_service.dart:116, 235`).
-- **Status:** CONFLICT (C-05, C-06)
+- **Status:** RESOLVED (decision C-05; C-06, existing orphans, skipped)
 - **Confidence:** high
 - **Edge cases:** as written, a deleted property's additional expenses remain in storage. Nothing reads them afterwards, because every reader starts from existing properties (`overview_service.dart:178-187`).
 - **Check:** Given a property with 2 additional expenses and 1 borrowing, when it is deleted, then the property, both expenses and the borrowing are all gone from storage.
@@ -326,10 +326,10 @@ All paths are relative to `wealth2track/lib/`. The only sources are the code, th
 
 - **Workflow:** W-07
 - **Evidence:** saved under field `rentIncreaseLimit` (`rent_tab.dart:83`); displayed from `rentIncreaseLimitPercent` (`rent_tab.dart:85`, `property_renting.dart:14`, `property_renting.g.dart:24-25`)
-- **Status:** CONFLICT (C-11)
+- **Status:** RESOLVED (decision C-11)
 - **Confidence:** high
 - **Edge cases:** as written, a saved limit never appears on screen; stored data may hold either name.
-- **Check:** Given Rent increase limit set to 2.5, when Rent reloads, then it shows 2.5.
+- **Check:** Given Rent increase limit set to 2.5, when Rent reloads, then it shows 2.5, stored under `rentIncreaseLimitPercent`; and a value stored earlier as `rentIncreaseLimit` is shown too.
 - **Disposition:** transform
 
 ### R-31  Field inputs are validated: amounts and numbers required and numeric; an empty date starts at today
@@ -542,10 +542,10 @@ All paths are relative to `wealth2track/lib/`. The only sources are the code, th
 
 - **Workflow:** W-14
 - **Evidence:** `borrowing_service.dart:99-112`: market value defaults to 0.0 and the division has no branch for 0, giving Infinity (borrowings > 0) or NaN (no borrowings), formatted by `formatCurrency` (`market_value_tile.dart:72`, `property_record.dart:91-92`)
-- **Status:** CONFLICT (C-16)
+- **Status:** RESOLVED (decision C-16)
 - **Confidence:** high
 - **Edge cases:** —
-- **Check:** stage 3 (once C-16 is decided): Given a property with no market value, when Market Value opens, then LTV shows the agreed placeholder.
+- **Check:** Given a property with no market value, when Market Value opens, then its LTV shows "—".
 - **Disposition:** transform
 
 ### R-51  Every borrowing records the user and property it belongs to
@@ -576,7 +576,7 @@ All paths are relative to `wealth2track/lib/`. The only sources are the code, th
 
 - **Workflow:** W-15
 - **Evidence:** `market_value_tile.dart:49-54`; route `/market_value_list/<selectedIndex>` (`edit_fieldvalue_dialog.dart:158`); only `/market_value_list/0` maps to `propertyDetails` (`property_service.dart:89-90`); any other index falls to `handleSettingsUpdates`, which writes nothing (`:136-138, 203-210`)
-- **Status:** CONFLICT (C-17)
+- **Status:** RESOLVED (decision C-17)
 - **Confidence:** high on code path; not observed running
 - **Edge cases:** if the last details tab opened was not Main (R-23), the edit is silently dropped and "Market value has been updated" still shows (`market_value_tile.dart:55-61`).
 - **Check:** Given the last details tab opened was Rent, when a market value is changed to 450,000 here and saved, then the property's stored market value is 450,000.
