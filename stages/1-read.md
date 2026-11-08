@@ -6,21 +6,24 @@
 
 ## Do
 
-1. **Bound the module.** List the files in scope, and the files it calls or is called by. If the boundary is unclear, stop and ask.
-2. **List the workflows.** Each thing a user or another system can make the module do, with its entry point: a route, handler, screen action, job or message.
-3. **Trace each workflow** from entry to where it ends: a write, an external call, a response, a screen. Follow the code, and the UI path where there is one.
-4. **Note what you could not trace:** dynamic dispatch, configuration, external calls, behaviour that depends on data or timing.
+1. **Bound the module.** List the files in scope, what it calls out to, and what reaches it: callers, routes, navigation into its screens, wiring.
+2. **List the workflows.** A workflow is one action a user or another system can take that ends in a different write, external call or screen. Two actions with the same code path and the same ending are one workflow. Give each its entry point.
+3. **Trace each workflow** from entry to where it ends. Follow the code, and the UI path where there is one. Keep it short, except where the arithmetic or the data shape *is* the behaviour; then spell it out.
+4. **Record the data touched:** the stores, tables or collections, and the stored field names each workflow reads or writes.
+5. **Record what you could not trace**, sorted into: out of scope; platform and external services; timing and shared state; unreachable code.
 
 ## Write
 
-`intent/README.md`, from `templates/README.md`: Scope, Sources read, Workflows, Traces, Not traced.
+`intent/README.md`, from `templates/README.md`.
 
 ## Rules
 
-- Describe what the code does, not what it should do. No fixes, no opinions yet.
+- Describe what the code does, not what it should do.
 - Cite every step: `file:line` or `file › function`, or the screen name.
-- Keep traces short: a numbered list or a small ASCII flow per workflow.
+- A defect that is a plain code fact (a wrong field name, a missing branch, an unawaited call) goes into the trace as a fact, with its citation and no verdict. Stage 2 decides what it means.
 
 ## Stop
 
-Show the person the workflow list. Ask whether anything is missing, or out of scope, before stage 2.
+If the person is here, show the workflow list and ask whether anything is missing or out of scope.
+
+If no one can answer now, make the call yourself, write it under **Calls to confirm** in the README with the reason, and go on.

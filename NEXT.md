@@ -1,6 +1,6 @@
 # Resume here
 
-Last session: 2026-11-08. The light version exists: four stage files, four templates and a Claude Code skill. Not yet run on a real module.
+Last session: 2026-11-08. Light version built, run once end to end on wealth2track (found 8 live-app defects in the PX-001 rebuild), and revised from that run.
 
 ## Where things stand
 
@@ -12,7 +12,8 @@ Last session: 2026-11-08. The light version exists: four stage files, four templ
 ## Next steps (from the concept doc)
 
 1. ~~Write the stage instructions~~ done 2026-11-08 as the light version (4 stages, 4 files).
-2. **First real run:** run the extraction on `~/workspace/wealth2track` and compare with Phoenix's A-00 to A-03 output: same rules found, same bugs?
+2. ~~First real run~~ done 2026-11-08: `runs/2026-11-08-wealth2track-properties/` (all 4 stages, see COMPARISON.md). Lessons folded into the method the same day (CHANGES.md).
+2b. **Run 2:** the improved method on a different module, ideally one not built by Michael, to test the changes.
 3. Write the StratIQX case up as a full intent package, beside PX-001.
 4. PX-002: a two-way test on a module neither run has seen (straight port from a minimal spec vs Palimpsest then build).
 5. Essay for semanticintent.dev: *Read backwards, build forwards*.

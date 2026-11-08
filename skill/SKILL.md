@@ -13,11 +13,11 @@ The stage instructions and templates live in the Palimpsest repo, `stages/` and 
 
 - No `intent/` folder yet → **Stage 1 · Read**: follow `stages/1-read.md`. Stop after showing the workflow list.
 - `intent/README.md` exists, no `rules.md` → **Stage 2 · State**: follow `stages/2-state.md`. Stop after handing over `conflicts.md`.
-- `conflicts.md` has open entries → **Stage 3 · Gate**: help the person record decisions or owners, then write `verify.md` (`stages/3-gate.md`).
+- `conflicts.md` has entries marked **Open** → **Stage 3 · Gate**: help the person record decisions or owners, then write `verify.md` (`stages/3-gate.md`).
 - The person says the new code is built and this session has **not** seen the build → **Stage 4 · Verify** (`stages/4-verify.md`). If this session did see the build, say so and ask for a fresh session instead.
 
 ## Always
 
-- One stage per turn; stop where the stage says to stop.
+- One stage per turn; stop where the stage says to stop. If no one can answer, record the call under *Calls to confirm* and continue, as stage 1 says.
 - Cite evidence for every step and rule. If the reason is not in the evidence, the status is UNKNOWN.
 - Never fix code during stages 1, 2 or 4.
