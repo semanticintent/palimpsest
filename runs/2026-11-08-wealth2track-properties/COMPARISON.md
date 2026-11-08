@@ -41,3 +41,33 @@ First real run of the light version (stages 1 and 2), compared with what Phoenix
 - The comparison above was made by the session that set up the run, which knew Phoenix's findings. Only the run itself was blind.
 - The templates' examples came from this same app (LTV at zero, the 1.42 rate). The agent reports finding both in stage 1 from the code, with citations, but the examples should come from an unrelated module.
 - C-10 (factor 0) is worth a closer look: it may be the real root of the "frequencyFactor: 0" story on PX-001's first page, which the audit could not source. Not yet checked.
+
+## Stage 4 · Verify against the PX-001 rebuild (2026-11-08)
+
+A fresh agent, given only `intent/` and the rebuilt app's code (`wealth2track/build/`), checked the 44 unblocked rules. It ran the existing suite (51 tests, all passing; none renders a screen) and reasoned from code for the rest.
+
+**30 pass · 14 fail · 0 not testable.** Two of the fails (R-25, R-44) are cases where the check's own scenario passes but the rule is broken elsewhere; a stricter reading of the check alone gives 32 / 12.
+
+### Fails that are defects in the live app
+
+| Rule | What happens | Confirmed by hand |
+| --- | --- | --- |
+| R-44 | A new additional expense defaults to one-time (factor 0); every total treats it as monthly, so a one-off 5,000 counts every month | Yes (also found in the PX-001 audit) |
+| R-36 | Totals ignore each amount's currency and treat everything as CAD; USD view multiplies by the rate | Yes |
+| R-25 | Saving the Expenses tab rewrites all four standard expenses with factor 1; an annual amount from imported or demo data becomes monthly | Yes |
+| R-21 | Dates are read as UTC and shown in local time: one day early in Canadian time zones | Yes |
+| R-49 | Loan-to-value adds borrowings without converting currency | No |
+| R-31 | An empty or invalid amount saves as null and wipes the stored value, with no error | No |
+| R-41 | Borrowing payments cannot be annual; the stored payment factor is ignored | No |
+| R-46 | Additional expenses sorted by expense date, not by when added | No |
+
+Also flagged, not verified in a browser: the property edit form fills its fields once, before the data loads, so it may open blank and reset building type and description on save.
+
+### Fails that reflect the redesign rather than a defect
+
+R-03 (list title), R-08 (where create goes next), R-11 (save options), R-22 (property type and the read-only Overview tab), R-33 and R-35 (standard expenses monthly only, no period or currency selector). The rebuild deliberately changed direction to a Proton-style app (ep-001). These rules captured the original's UI choices as intent; stage 2 should separate what the user needs from how the old screens did it.
+
+### What this shows
+
+- **A fresh session found defects that the same-session certification did not.** A-06, run in the build session, gave this app a conditional pass. The fresh check found the one-time expense, currency and date defects with one read of the code. Caveat: A-06 checked against Phoenix's specs, a different rule set.
+- **Rules need to separate intent from old UI.** About half the fails are the redesign showing through. Checks should describe behaviour, with the old structure only as a hint.
