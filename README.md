@@ -4,6 +4,8 @@
 
 A palimpsest is a manuscript page scraped and written over, where the earlier text can still be read beneath the new one. A legacy module is the same.
 
+Introduction, the side-by-side with Project Phoenix, and run 1's results: **[semanticintent.ai/palimpsest](https://semanticintent.ai/palimpsest)**.
+
 ## The light version: four stages, four files
 
 | Stage | Who | Writes |
