@@ -45,5 +45,5 @@ Reading code backwards into specs is an active area in 2026. The closest project
 ## More
 
 - Concept, draft 1: [`concept/palimpsest-concept.md`](concept/palimpsest-concept.md) (the light version supersedes its 11-file package)
-- Where to pick up: [`NEXT.md`](NEXT.md)
+- What's done and what's next: [`ROADMAP.md`](ROADMAP.md)
 - Examples come from personal projects only.
