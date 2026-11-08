@@ -15,7 +15,7 @@ Working name. Alternatives considered: *Intent Extraction* (plain, but unsearcha
 Every transformation passes through intent, and AI has made the forward half cheap, so the backward half is now where the leverage is.
 
 - **Intent belongs to neither technology.** Code is tied to its language, screens to their framework, data to its schema. What a module is for, and the rules it must keep, carries over to any target.
-- **Building forwards is now cheap.** In PX-001 the whole rebuild, five build passes and 51 tests, ran in one afternoon session once the target was clear.
+- **Building forwards is now cheap.** In PX-001 the whole run, from extraction to five build passes and 51 tests, fit in one session on a single morning.
 - **A straight port keeps the bugs.** It preserves behaviour, wrong behaviour included. Reading for intent is what found PX-001's cascade-delete bug and the unguarded loan-to-value division.
 - **The module is the natural unit.** Legacy work happens one tangled module at a time while the system keeps running. Reading backwards is a move one person can make in an afternoon, not a programme.
 
