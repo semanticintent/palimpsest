@@ -1,3 +1,5 @@
+<img src="glyph/palimpsest-orange.svg" width="56" alt="Palimpsest glyph: lines of text breaking around a lens, with older lines showing through inside it">
+
 # Palimpsest
 
 *Working name.* Read an existing module backwards — code, screens, data — into a small **intent package** that any model or tool can build forwards from.
