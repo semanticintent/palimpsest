@@ -40,6 +40,6 @@ Reading code backwards into specs is an active area in 2026. The closest project
 
 ## More
 
-- Concept, draft 1: [`concept/palimpsest-concept.md`](concept/palimpsest-concept.md) (snapshot of the [editable doc](https://claude.ai/artifact/NYN7GqnXQWk6HBfB1Fa5eL); the light version supersedes its 11-file package)
+- Concept, draft 1: [`concept/palimpsest-concept.md`](concept/palimpsest-concept.md) (the light version supersedes its 11-file package)
 - Where to pick up: [`NEXT.md`](NEXT.md)
 - Examples come from personal projects only.

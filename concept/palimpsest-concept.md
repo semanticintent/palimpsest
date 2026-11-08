@@ -1,6 +1,6 @@
 # Palimpsest — reading intent backwards
 
-Nov 7, 2026 · Michael · Concept, draft 1 · exported from the [concept doc](https://claude.ai/artifact/NYN7GqnXQWk6HBfB1Fa5eL)
+Nov 7, 2026 · Michael · Concept, draft 1
 
 ## The name and the idea
 

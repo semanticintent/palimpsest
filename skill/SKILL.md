@@ -7,7 +7,7 @@ description: Read an existing module backwards into a small intent package (inte
 
 Read one module backwards: what it does, what it is for, which rules it must keep, and where the sources disagree. Then build forwards with anything, and verify in a fresh session.
 
-The stage instructions and templates live in the Palimpsest repo, `stages/` and `templates/` (locally `~/workspace/palimpsest`, or github.com/semanticintent/palimpsest). Read the stage file before each stage. Copy the templates into the target repo's `intent/` folder as you go.
+The stage instructions and templates live in the Palimpsest repo, `stages/` and `templates/` (clone github.com/semanticintent/palimpsest). Read the stage file before each stage. Copy the templates into the target repo's `intent/` folder as you go.
 
 ## Pick the stage
 
